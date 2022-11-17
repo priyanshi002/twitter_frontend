@@ -1,0 +1,18 @@
+
+<input type="search" value="" #keyword>
+
+
+<input type="submit" value="Submit" (click)="SearchWord(keyword)">
+
+<ag-grid-angular id="Home-Grid"
+    style="width: auto; height: 150px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [pagination]="true"
+    (cellClicked)="onCellClicked($event)"
+    (gridReady)="onGridReady($event)"
+    [animateRows]="true"
+    [enableCellTextSelection]="true"
+    rowSelection = "multiple">
+</ag-grid-angular>
