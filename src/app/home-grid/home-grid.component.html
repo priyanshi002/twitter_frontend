@@ -1,18 +1,36 @@
+<div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="SearchWord(keyword, number_of_tweets)">
+        <input type="text" value="" placeholder="Enter Keyword" #keyword formControlName="keyword" style="margin-top: 2%; margin-right: 5%;">
+        <input type="number" (keypress)="updateForm($event)" value="" placeholder="Enter No. of Tweets" #number_of_tweets formControlName="tweets">
 
-<input type="search" value="" #keyword>
+        <br />
+        <br />
 
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
 
-<input type="submit" value="Submit" (click)="SearchWord(keyword)">
+    
 
-<ag-grid-angular id="Home-Grid"
-    style="width: auto; height: 150px;"
-    class="ag-theme-alpine"
-    [rowData]="rowData"
-    [columnDefs]="columnDefs"
-    [pagination]="true"
-    (cellClicked)="onCellClicked($event)"
-    (gridReady)="onGridReady($event)"
-    [animateRows]="true"
-    [enableCellTextSelection]="true"
-    rowSelection = "multiple">
-</ag-grid-angular>
+    
+    
+
+    <br />
+    <br />
+
+    <div style="height: auto;">
+        <ag-grid-angular id="Home-Grid"
+        class="ag-theme-balham"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [pagination]="true"
+        (cellClicked)="onCellClicked($event)"
+        (gridReady)="onGridReady($event)"
+        [animateRows]="true"
+        [floatingFilter] = "true"
+        [enableCellTextSelection]="true"
+        rowSelection = "multiple">
+        </ag-grid-angular>
+    </div>
+    
+
+</div>
